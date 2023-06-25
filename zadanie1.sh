@@ -18,8 +18,14 @@ if [[ "$1" = "--logs" ]] || [[ "$1" = "-l" ]]; then
             echo "Skrypt: skrypt.sh" >> log$i/log$i.txt
             echo "Data: $(date)" >> log$i/log$i.txt
         done
+    
     else
-        echo "Podaj liczbę plików do utworzenia."
+        for ((i=1; i<=100; i++)); do
+	    mkdir log$i
+	    echo "Nazwa pliku: log$i.txt" > log$i/log$i.txt
+	    echo "Skrypt: skrypt.sh" >> log$i/log$i.txt
+	    echo "Data: $(date)" >> log$i/log$1.txt
+	   done
     fi
 elif [[ "$1" = "--help" ]] || [[ "$1" = "-h" ]]; then
     if [[ "$2" = "-a" ]]; then

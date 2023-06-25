@@ -13,9 +13,10 @@ show_help() {
 if [[ "$1" = "--logs" ]] || [[ "$1" = "-l" ]]; then
     if [ -n "$2" ]; then
         for ((i=1; i<=$2; i++)); do
-            echo "Nazwa pliku: log$i.txt" > log$i.txt
-            echo "Skrypt: skrypt.sh" >> log$i.txt
-            echo "Data: $(date)" >> log$i.txt
+	    mkdir log$i
+            echo "Nazwa pliku: log$i.txt" > log$i/log$i.txt
+            echo "Skrypt: skrypt.sh" >> log$i/log$i.txt
+            echo "Data: $(date)" >> log$i/log$i.txt
         done
     else
         echo "Podaj liczbę plików do utworzenia."

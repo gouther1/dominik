@@ -6,6 +6,7 @@ show_help() {
     echo "    --logs [liczba], -l [liczba] - utworzenie określonej liczby plików log"
     echo "    --date, -d - wyświetlenie dzisiejszej daty"
     echo "    --help, -h - wyświetlenie dostępnych opcji"
+    echo "    --init - klonuje całe repozytorium i ustawia ścieżkę w PATH"
     echo "    -a - dodatkowe flagi"
 }
 
@@ -30,7 +31,10 @@ elif [[ "$1" = "--help" ]] || [[ "$1" = "-h" ]]; then
     fi
 elif [[ "$1" = "--date" ]] || [[ "$1" = "-d" ]]; then
     echo "Dzisiejsza data: $(date)"
+elif [[ "$1" = "--init" ]]; then
+    git clone <repozytorium> .
+    export PATH=$(pwd):$PATH
+    echo "Repozytorium zostało sklonowane i ścieżka została ustawiona w PATH."
 else
     echo "Nieznana opcja. Użyj --help, aby wyświetlić dostępne opcje."
 fi
-
